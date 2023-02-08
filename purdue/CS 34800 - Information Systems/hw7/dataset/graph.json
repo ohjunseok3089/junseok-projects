@@ -1,0 +1,37 @@
+{
+    "node_id" :"A",
+    "type" :"Student",
+    "adj_list" :["B"]
+}
+{
+    "node_id":"B",
+    "type":"Faculty",
+    "adj_list" :["A", "C", "D", "F"]
+}
+{
+    "node_id":"F",
+    "type":"Course",
+    "adj_list" :["B", "D", "G"]
+}
+{
+    "node_id":"C",
+    "type":"Faculty",
+    "adj_list" :["B", "D", "E"]
+}
+{
+    "node_id":"D",
+    "type":"Course",
+    "adj_list" :["F", "B", "C", "E"]
+}
+{
+    "node_id":"E",
+    "type":"Student",
+    "adj_list" :["C", "D"]
+}
+{
+    "node_id":"G",
+    "type":"Student",
+    "adj_list" :["F"]
+}
+
+

@@ -1,0 +1,36 @@
+// Execute each query separately by copying the query to Neo4J query textbox
+
+CREATE (au1:Author {name:"Alex"}), (au2:Author {name:"Jia Li"}), (au3:Author {name:"Ramesh"}), (au4:Author {name:"Jennifer"})
+
+//----------------------------------------------------------------------------
+CREATE (ar1:Article {title:"Multi-Version Concurrency Control"}), (ar2:Article {title:"In-memory databases"}), (ar3:Article {title:"Race Condition"}), (ar4:Article {title:"Data Streams"})
+
+//----------------------------------------------------------------------------
+CREATE (la1:Language {name:"Python"}), (la2:Language {name:"Java"})
+
+//----------------------------------------------------------------------------
+CREATE (to1:Topic {name:"Database Systems"}), (to2:Topic {name:"Operating Systems"})
+
+//----------------------------------------------------------------------------
+Match (au1:Author {name:"Alex"}), (au2:Author {name:"Jia Li"}), (au3:Author {name:"Ramesh"}), (au4:Author {name:"Jennifer"}), (ar1:Article {title:"Multi-Version Concurrency Control"}), (ar2:Article {title:"In-memory databases"}), (ar3:Article {title:"Race Condition"}), (ar4:Article {title:"Data Streams"}), (la1:Language {name:"Python"}), (la2:Language {name:"Java"}), (to1:Topic {name:"Database Systems"}), (to2:Topic {name:"Operating Systems"})
+CREATE (au3)-[:Wrote]->(ar1), 
+       (au1)-[:Reviewed]->(ar1), 
+       (au1)-[:Wrote]->(ar2), 
+       (au2)-[:Wrote]->(ar3),
+       (au4)-[:Wrote]->(ar4),
+       (ar1)-[:Related {strength:"highly related"}]->(ar2),
+       (ar2)-[:Related {strength:"slightly related"}]->(ar3), 
+       (ar1)-[:In_Area]->(to1),
+       (ar2)-[:In_Area]->(to1),
+       (ar3)-[:In_Area]->(to2),
+       (ar4)-[:In_Area]->(to1),
+       (ar1)-[:Used]->(la1),
+       (ar2)-[:Used]->(la1),
+       (ar3)-[:Used]->(la2),
+       (ar4)-[:Used]->(la2)
+
+//---------------------------------
+Use the following query to see the whole graph
+Match (au:Author), (ar:Article),  (la:Language), (to:Topic)
+Return au, ar, la, to
+

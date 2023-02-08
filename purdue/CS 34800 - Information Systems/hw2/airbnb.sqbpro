@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/Users/junseok/OneDrive - purdue.edu/CS 348/airbnb.db" readonly="0" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><main_tabs open="structure browser pragmas query" current="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="1221"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="4,4:mainarea"/><default_encoding codec=""/><browse_table_settings/></tab_browse><tab_sql><sql name="SQL 1">SELECT
+	place.id,
+	place.name,
+	place.price,
+	room .room_type
+FROM
+	place,
+	room
+WHERE
+	place.price = (
+		SELECT MIN(price)
+		FROM place
+	)
+	AND room.room_type_id = place.room_type_id
+	
+
+</sql><current_tab id="0"/></tab_sql></sqlb_project>

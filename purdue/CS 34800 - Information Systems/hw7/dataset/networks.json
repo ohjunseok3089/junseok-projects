@@ -1,0 +1,17 @@
+
+{
+    "net": "ci",
+    "description": "California Integrated Seismic Network: Southern California Seismic Network (Caltech/USGS Pasadena and Partners) and Southern California Earthquake Data Center"
+}
+{
+    "net": "hv",
+    "description": "Hawaii Volcano Observatory"
+}
+{
+    "net": "ak",
+    "description": "Alaska Earthquake Center"
+}
+{
+    "net": "pr",
+    "description": "Puerto Rico Seismic Network"
+}

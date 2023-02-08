@@ -1,0 +1,136 @@
+% Only edit between \begin{questions} and \end{questions} tags.
+
+\documentclass[12pt]{exam}
+\usepackage[utf8]{inputenc}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{blindtext}
+\usepackage{scrextend}
+\usepackage{graphicx}
+\usepackage{comment}
+\usepackage{enumitem}
+
+\def\ojoin{\setbox0=\hbox{$\bowtie$}%
+  \rule[-.02ex]{.25em}{.4pt}\llap{\rule[\ht0]{.25em}{.4pt}}}
+\def\leftouterjoin{\mathbin{\ojoin\mkern-5.8mu\bowtie}}
+\def\rightouterjoin{\mathbin{\bowtie\mkern-5.8mu\ojoin}}
+\def\fullouterjoin{\mathbin{\ojoin\mkern-5.8mu\bowtie\mkern-5.8mu\ojoin}}
+
+
+\renewcommand{\choiceshook}{%
+    \setlength{\leftmargin}{15pt}%
+}
+\title{CS 348 - Homework 3 }
+\author{Relational Algebra and GCP}
+\date{Spring 2022}
+
+\begin{document}
+
+\maketitle
+\noindent
+Write your answers for questions 1 to 9 in this latex file. Use a latex editor, such as overleaf to edit and compile your latex to a PDF file. Submit your latex file to Brightspace. Submit your PDF file to Gradescope. Question 1 includes some relational algebra operators and symbols that you can use in your answers.
+
+
+\begin{questions}
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $\pi_{minimum\_nights}(place)$
+\vspace{50 mm}
+	
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $\pi_{place.id, place.name}((\sigma_{neighbourhood.name = 'Harlem'}(place\bowtie_{place.neighbourhood\_id=neighbourhood.neighbourhood\_id} neighbourhood))$
+\vspace{50 mm}
+
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $\pi_{place.id, place.name}\\((\sigma_{neighbourhood.name = 'Harlem'}(\sigma_{place.neighbourhood\_id=neighbourhood.neighbourhood\_id}(place\times neighbourhood)))) $ \\
+\vspace{50 mm}
+
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $\pi_{area.area, neighbourhood.name,place.id,place.name,place.price}\\
+    (\sigma_{area.area='Staten Island'}(area\bowtie_{area.area\_id=neighbourhood.area\_id} neighbourhood\\ \leftouterjoin_{neighbourhood.neighbourhood\_id=place.neighbourhood\_id} place)$
+\vspace{50 mm}
+
+\question 
+
+\textbf{Answer:}  \\
+    %.........  Write your answer   ..... %
+    $\pi_{host.host\_name, area.area}(host\times area)$
+\vspace{50 mm}
+
+\question 
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $ R \leftarrow ((\pi_{neighbourhood.neighbourhood\_id} neighbourhood) - (\pi_{place.neighbourhood\_id} place))$\\
+    $ R2 \leftarrow \pi_{neighbourhood.neighbourhood\_id, neighbourhood.name}\\
+    (neighbourhood\bowtie_{neighbourhood.neighbourhood\_id=R.neighbourhood\_id}R)$
+\vspace{50 mm}
+
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $\pi_{neighbourhood.neighbourhood\_id, neighbourhood.name} (\sigma_{host.host\_name='Luke' \; or \; host.host\_name='Casey'}\\
+    ((place\bowtie_{ place.neighbourhood\_id = neighbourhood.neighbourhood\_id} neighbourhood)\bowtie_{place.host\_id=host.host\_id} host))$
+\vspace{50 mm}
+
+\question 
+
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    $ a \leftarrow place \bowtie_{place.host\_id = host.host\_id} host$ \\
+    $ b \leftarrow a \bowtie_{neighbourhood.neighbourhood\_id = place.neighbourhood\_id} neighbourhood$ \\
+    $ c \leftarrow b \bowtie_{neighbourhood.area\_id = area.area\_id} area$\\
+    $ d \leftarrow \pi_{host.host\_id, area.area\_id} c$\\
+    $ e \leftarrow \pi_{area.area\_id} area$\\
+    $ result \leftarrow d \div e$\\
+\vspace{50 mm}
+
+\question 
+\textbf{Answer:} \\
+    %.........  Write your answer   ..... %	
+    \begin{enumerate} [label=\alph*]
+        \item
+        \begin{itemize}
+            \item minimum: 1
+            \item maximum: n
+        \end{itemize}
+        \item
+        \begin{itemize}
+            \item minimum: 1
+            \item maximum: n
+        \end{itemize}
+        \item
+        \begin{itemize}
+            \item minimum: 0
+            \item maximum: n - 1
+        \end{itemize}
+        \item
+        \begin{itemize}
+            \item minimum: 0
+            \item maximum: 0
+        \end{itemize}
+    \end{enumerate}
+\vspace{50 mm}
+
+
+\end{questions}
+\bigskip 
+\noindent
+
+
+\end{document}

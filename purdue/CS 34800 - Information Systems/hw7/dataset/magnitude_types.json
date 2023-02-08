@@ -1,0 +1,12 @@
+{
+    "magType": "ml",
+    "magDescription": "ml  (local)",
+    "Magnitude Range": "~2.0 to ~6.5", 
+    "Distance Range": "0 - 600 km"
+}
+{
+    "magType": "md",
+    "magDescription": "md  (duration)",
+    "Magnitude Range": "~4 or smaller", 
+    "Distance Range": "0 - 400 km"
+}
